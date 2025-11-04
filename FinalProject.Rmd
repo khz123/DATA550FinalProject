@@ -1,0 +1,59 @@
+---
+title: 'Final Project Part 2: R Markdown'
+author: "Kelly Zhu"
+date: "Fall 2025"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE, 
+  message = FALSE, 
+  error = FALSE
+  )
+```
+
+# Introduction
+
+The analyses uses a dataset of 10,000 synthetic records which simulates real-world patterns of coffee consumption, sleep behaviors, and health outcomes across 20 countries. It includes demographic information (age, gender), lifestyle factors (daily coffee intake, alcohol use, smoking habits), and health indicators (BMI, sleep, stress).
+
+The current primary analysis objective is to examine how caffeine intake and alcohol consumption relate to average sleep duration, while also setting the stage for exploring broader associations between lifestyle behaviors and health metrics.
+
+```{r, load-data}
+here::i_am("FinalProject.Rmd")
+
+# load
+coffee <- readRDS(
+  file = here::here("data/coffee_data.RDS")
+  )
+```
+
+# Analysis
+
+```{r, figure1}
+# load
+figure1 <- readRDS(file = here::here("output/scatterplot.RDS"))
+figure1
+```
+
+The figure shows the relationship between daily caffeine intake and average sleep hours, faceted by alcohol consumption. In both groups, higher caffeine intake is associated with fewer hours of sleep, as indicated by the downward-sloping regression lines. Visibly, the slopes are similar in both "No" and "Yes" groups, supporting the idea that alcohol consumption does not substantially alter the association between caffeine intake and sleep duration. The wide scatter of points around each regression line highlights considerable variability in individual sleep patterns.
+
+```{r, model-table}
+library(gtsummary)
+
+model1 <- readRDS(
+  file = here::here("output/regression_model.RDS")
+  )
+
+# load
+table1 <- readRDS(
+  file = here::here("output/regression_table.RDS")
+  )
+
+table1
+```
+
+The regression model indicates that higher caffeine intake is significantly associated with fewer hours of sleep. For every additional 100 mg of caffeine, or every cup of coffee, average hours of sleep decreases by about `r round(model1$coefficients[1]*-100, 2)` hours (10 minutes; p \< 0.001). After adjusting for caffeine intake, alcohol consumption was not a significant predictor of sleep (p = 0.62), suggesting that drinkers and non-drinkers slept about the same on average. The model explains a small amount of variation in sleep hours (adjusted R-squared = 0.036).
