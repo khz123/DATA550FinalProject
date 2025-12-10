@@ -40,3 +40,19 @@ Alternatively, you can run directly in R:
 ```r
 renv::restore()
 ```
+
+# --------------------------------------------------------
+
+# Create the report
+
+To generate the report, run:
+
+```bash
+make 
+```
+or
+
+```bash
+make  FinalProject.html
+```
+
