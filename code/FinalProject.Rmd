@@ -1,5 +1,5 @@
 ---
-title: 'Final Project Part 2: R Markdown'
+title: 'DATA 550: Final Project'
 author: "Kelly Zhu"
 date: "Fall 2025"
 output: 
@@ -23,7 +23,7 @@ The analyses uses a dataset of 10,000 synthetic records which simulates real-wor
 The current primary analysis objective is to examine how caffeine intake and alcohol consumption relate to average sleep duration, while also setting the stage for exploring broader associations between lifestyle behaviors and health metrics.
 
 ```{r, load-data}
-here::i_am("FinalProject.Rmd")
+here::i_am("code/FinalProject.Rmd")
 
 # load
 coffee <- readRDS(
