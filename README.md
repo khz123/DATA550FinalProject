@@ -8,8 +8,8 @@ average sleep duration, while also setting the stage for exploring broader
 associations between lifestyle behaviors and health metrics.
 
 ## Build Report Using Docker
-- ensure docker application is running
-- in your terminal, navigate to directory where project is open
+First, ensure your Docker application is running.
+Then, in your terminal, navigate to the directory where the project is open.
 
 ### Build Docker Image 
 
@@ -24,10 +24,7 @@ Alternatively, you can use the Docker image here: https://hub.docker.com/r/mengk
 
 ### Run container
 The `final_report` Makefile target runs the Docker container and generates the 
-project report. 
-
-It mounts a local folder called `report` so that any output produced 
-inside the container is automatically available on your host machine.
+project report. Run the following:
 
 ```bash
 make final_report
@@ -37,7 +34,7 @@ This should create a Docker container and build the final report.
 The final report, titled `FinalProject.html` should be found in the `report/` folder.
 
 # -----------------------------------------------------
-# Code Descriptions
+## Code Descriptions
 
 `code/00_load_data.R`
   - reads in the raw CSV file
@@ -61,7 +58,7 @@ The final report, titled `FinalProject.html` should be found in the `report/` fo
   
 # -----------------------------------------------------
 
-# Sync package repository
+## Sync package repository
 
 To synchronize the package repository and install all required dependencies:
 
