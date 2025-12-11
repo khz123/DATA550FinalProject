@@ -58,9 +58,12 @@ The final report, titled `FinalProject.html` should be found in the `report/` fo
   
 # -----------------------------------------------------
 
-## Sync package repository
+## Generate report using Make
 
-To synchronize the package repository and install all required dependencies:
+### Sync package repository
+
+Before generating the report, remember to sync the package repository.
+To sync the package repository and install all required dependencies, in the terminal run:
 
 ```bash
 make install
@@ -75,6 +78,13 @@ Alternatively, you can run directly in R:
 renv::restore()
 ```
 
+Once the packages are synchronized, run:
 
+```bash
+make 
+```
+
+This will build the final report, titled `FinalProject.html`, which can be found 
+in the `report/` folder.
 
 

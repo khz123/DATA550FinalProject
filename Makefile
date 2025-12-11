@@ -25,7 +25,7 @@ output/regression_model.RDS: code/02_regression_table.R data/coffee_data.RDS
 
 .PHONY: clean
 clean:
-	rm -f output/*.RDS && rm -f report/FinalProject.html
+	rm -f output/*.RDS && rm -f data/*.RDS && rm -f report/FinalProject.html
 	
 # docker associated rules which run on local machine
 .PHONY: build_image
